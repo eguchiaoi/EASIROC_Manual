@@ -1,4 +1,19 @@
-\documentclass{jsarticle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 EASIROC Manual    
+%                           Version : 0.1 (2019/12/4)  
+% 
+%  Created by :  
+%   Aoi EGUCHI, the University of Tokyo (eguchi@hep.phys.s.u-tokyo.ac.jp)
+%   Haruto KIKUTANI, the University of Tokyo (haruto@hep.phys.s.u-tokyo.ac.jp) 
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% ======================  package installattion  ===================== %
+%\documentclass{jsarticle}
+\documentclass[a4paper]{report}
 \usepackage{bm}
 \usepackage{fancyhdr}
 \usepackage{amsmath}
@@ -15,25 +30,37 @@
 \usepackage{color}
 \usepackage{ascmac}
 \usepackage{url}
-%\usepackage{txfonts}
+\usepackage{geometry}
 
+%page format 
+\geometry{
+	a4paper,
+	total={160mm,247mm},
+	left=25mm,
+	top=25mm
+}
 
+\graphicspath{ {Images/} }
 
 %\pagestyle{empty}
 \pagestyle{fancy}
 
 
+% ======================  BEGIN DOC.  ===================== %
 \begin{document}
 
 \title{EASIROC User's Guide}
-%\author{}
-\date{2019/5/9}
+
 \maketitle
 
 
 \newpage
 \section{EASIROCについて}
-Monolithic MPPC arrayは、高い集積度で検出器を作ることを可能にするが、大面積をカバーする場合多くのチャンネル数が必要となる。またブレイクダウン電圧や印加電圧とゲインの関係が単一の Monolithic MPPC array 上の MPPC 間でも異なるため、各 MPPC への印加電圧を調整する必要がある。この二つの要請を満たすために MPPC 読み出しシステムとして KEK 及び OpenIt が2013年に EASIROC ボード(GN-1101-1,GN-1101-2R) を開発した[1]。どちらのボードもファームウェアは EASIROC pro v4.4 を使用している。これは ASIC に OMEGA 社のEASIROC1 チップを用いた読み出しボードである。このチップの特性として主なものを以下に挙げる。
+Monolithic MPPC arrayは、高い集積度で検出器を作ることを可能にするが、大面積をカバーする場合多くのチャンネル数が必要となる。
+またブレイクダウン電圧や印加電圧とゲインの関係が単一の Monolithic MPPC array 上の MPPC 間でも異なるため、各 MPPC への印加電圧を調整する必要がある。
+この二つの要請を満たすために MPPC 読み出しシステムとして KEK 及び OpenIt が2013年に EASIROC ボード(GN-1101-1,GN-1101-2R) を開発した[1]。
+どちらのボードもファームウェアは EASIROC pro v4.4 を使用している。これは ASIC に OMEGA 社のEASIROC1 チップを用いた読み出しボードである。
+このチップの特性として主なものを以下に挙げる。
 \begin{itemize}
 \item 32チャンネル同時読み出し
 \item 正電圧入力、Amp、shaping後、正電圧出力
@@ -47,7 +74,9 @@ Monolithic MPPC arrayは、高い集積度で検出器を作ることを可能�
 
 \newpage
 \section{EASIROCの内部動作}
-ボードの内部には2つのEASIROCチップが埋まっており、最大で 64チャンネルの MPPC を同時に読み出すことができる。EASIROC チップからのアナログ信号は4つの ADC でデジタル信号に変換、Discriminator 出力は MHTDC 及び Scaler に入力され、Gatherer、Sender、SiTCP を介してデータ取得PC（DAC）に渡される。DAC と EASIROC ボード は Ethernet ケーブルでつながっている。必要な動作電圧は +6 V であり、NIMビンから供給可能である。
+ボードの内部には2つのEASIROCチップが埋まっており、最大で 64チャンネルの MPPC を同時に読み出すことができる。
+EASIROC チップからのアナログ信号は4つの ADC でデジタル信号に変換、Discriminator 出力は MHTDC 及び Scaler に入力され、Gatherer、Sender、SiTCP を介してデータ取得PC（DAC）に渡される。
+DAC と EASIROC ボード は Ethernet ケーブルでつながっている。必要な動作電圧は +6 V であり、NIMビンから供給可能である。
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width = 10.0cm, bb= 0 0 735 544]{2.png}
@@ -346,147 +375,6 @@ UsrClkOut: "OFF"  # "OFF", "ON", 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz, 3MHz, ..
 \end{enumerate}
 
 \end{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%表の挿入
-\begin{table}[H]
-\begin{center}
-\caption{表のタイトル}
-\begin{tabular}{ccc} \hline
- &  &  \\ \hline
- &  &  \\ 
- &  &  \\ 
- &  &  \\ 
- &  &  \\ \hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-%図の挿入
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width = 12.0cm, bb= 0 0 360 252]{ファイル名.eps}
-\end{center}
-\caption{グラフのタイトル}
-\label{fig:}
-\end{figure}
-
-
-%図を2つ並列
-\begin{figure}[H]
-\begin{minipage}{0.50\hsize}
-\begin{center}
-\includegraphics[width = 4.0cm,bb=0 0 600 600]{.ps}
-\end{center}
-\caption{タイトル}
-\label{fig:}
-\end{minipage}
-\begin{minipage}{0.50\hsize}
-\begin{center}
-\includegraphics[width = 4.0cm,bb=0 0 600 600]{.ps}
-\end{center}
-\caption{タイトル}
-\label{fig:}
-\end{minipage}
-\end{figure}
-
-
-
-%図を3つ並列
-\begin{figure}[H]
-\begin{minipage}{0.33\hsize}
-\begin{center}
-\includegraphics[width = 4.0cm,bb=0 0 600 600]{.ps}
-\end{center}
-\caption{タイトル}
-\label{fig:}
-\end{minipage}
-\begin{minipage}{0.33\hsize}
-\begin{center}
-\includegraphics[width = 4.0cm,bb=0 0 600 600]{.ps}
-\end{center}
-\caption{タイトル}
-\label{fig:}
-\end{minipage}
-\begin{minipage}{0.33\hsize}
-\begin{center}
-\includegraphics[width = 4.0cm,bb=0 0 600 600]{.ps}
-\end{center}
-\caption{タイトル}
-\label{fig:}
-\end{minipage}
-\end{figure}
-
-
-%文章と図の2段組
-\begin{multicols}{2}
-文章
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width = 7.0cm,bb=0 0 800 600]{.pdf}%図
-\end{center}
-\caption{タイトル}
-\label{fig:1.1.1}
-\end{figure}
-\end{multicols}
-
-\makeatletter
-
-%----- Equation num brackets -------------------
-
-\newcommand\eqnobrck[1]{[#1]}
-
-%---- Test if a file is loaded ------------------
-
-\newcommand\@iffileloaded[2]{%
-    \expandafter\ifx\csname ver@#1.#2\endcsname\relax
-       \expandafter\@secondoftwo
-    \else
-       \expandafter\@firstoftwo
-    \fi}
-
-%----- For right equation numbers --------------
-
-\renewcommand\@eqnnum{{%
-    \normalfont \normalcolor \eqnobrck{\theequation}}}
-
-%---- For left equation numbers ----------------
-
-\@iffileloaded{leqno}{clo}{%
-    \renewcommand\@eqnnum{\hb@xt@.01\p@{}%
-       \rlap{\normalfont\normalcolor
-       \hskip -\displaywidth\eqnobrck{\theequation}}}
-    }{}
-
-%---- If amsmath is loaded ----------------------
-
-\@ifpackageloaded{amsmath}{%
-     \renewcommand\tagform@[1]{%
-        \maketag@@@{\eqnobrck{\ignorespaces#1\unskip\@@italiccorr}}}
-        }{}
-
-
- \renewcommand{\theequation}{%
-   \thesection.\arabic{equation}}
-  \@addtoreset{equation}{section}
-
-
-\makeatother
-
 
 
 
