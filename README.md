@@ -12,7 +12,7 @@ This source code is confirmed that can be compiled with
 TeX Live 2018. 
 To check your TeX version, please use this command : 
 ```bash
-latex --version
+$ latex --version
 ```
 Then, you can check your own latex version.
 
@@ -35,7 +35,7 @@ Compiled with xpdf version 4.00
 1. Introduction
 2. How it works
 3. Usage
-4. Backup
+4. Reference
 
 ## Auther
 * Aoi Eguchi (University of Tokyo)

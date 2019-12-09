@@ -1,0 +1,18 @@
+
+\section{EASIROCについて} \label{introduction}
+Monolithic MPPC arrayは、高い集積度で検出器を作ることを可能にするが、大面積をカバーする場合多くのチャンネル数が必要となる。
+またブレイクダウン電圧や印加電圧とゲインの関係が単一の Monolithic MPPC array 上の MPPC 間でも異なるため、各 MPPC への印加電圧を調整する必要がある。
+この二つの要請を満たすために MPPC 読み出しシステムとして KEK 及び OpenIt が2013年に EASIROC ボード(GN-1101-1,GN-1101-2R) を開発した[1]。
+どちらのボードもファームウェアは EASIROC pro v4.4 を使用している。これは ASIC に OMEGA 社のEASIROC1 チップを用いた読み出しボードである。
+このチップの特性として主なものを以下に挙げる。
+\begin{itemize}
+\item 32チャンネル同時読み出し
+\item 正電圧入力、Amp、shaping後、正電圧出力
+\item 0 - 4.5 V、8 bit 程度のバイアス電圧調整機能
+\item discriminator を内蔵
+\item slow control でパラメータの調整が可能
+\item 入力電荷として 160 fC から 320 pC までのダイナミックレンジをカバー（これはMPPC のゲインを$10^6$と仮定すると 1 p.e. - 2000 p.e. に相当）
+\end{itemize}
+
+その後、WAGASCI の MPPC mass test に使用できるように2015年に東京大学がアップグレードし[2]、Scaler や TDC 情報を取得できるように改良した。
+
