@@ -3,3 +3,4 @@
 *.out
 manual.pdf
 manual.synctex.gz
+.DS_Store
