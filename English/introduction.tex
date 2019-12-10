@@ -1,0 +1,18 @@
+
+\section{About EASIROC} \label{introduction}
+We can construct a tightly integrated detector with monolithic MPPC array. 
+However, to cover the large area of the detector, we need to handle large amount of MPPCs. 
+MPPCs on the single monolithic MPPS array have different break down voltage and gain, thus it is necessary to adjust the operation voltage for each MPPC.\\
+To much these needs, KEK and openIt developed EASIROC board (GN-1101-1,GN-1101-2R) in 2013.\\
+This chip has some characteristics listed below:
+
+\begin{itemize}
+\item Readout 32 channels simultaneously
+\item Take positive voltage as input, amplifying, shaping output positive voltage
+\item Adjust bias voltage by 8 bit (0-4.5 V)
+\item Have discriminator in it
+\item Set parameters through slow control
+\item Cover the dynamics of 160 fC - 320 pC as input charge (this corresponds to 1-2000 p.e. with the assumption that MPPC's gain is $10^6$) 
+\end{itemize}
+
+University of Tokyo upgraded the EASIROC for the use of MPPC mass test for WAGASCI experiment and attached the function for scaler and TDC information.
